@@ -1,0 +1,11 @@
+sequenceDiagram
+    participant browser
+    participant server
+
+    Note left of browser: The user submits the form
+    browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+    activate server
+    Note right of server: The server creates a new note and returns a 201 Created response
+    server-->>browser: 201 Created { "message": "note created" }
+    deactivate server
+    Note right of browser: The event handler in browser that sent the note to the server then creates a new note and adds it to the DOM
