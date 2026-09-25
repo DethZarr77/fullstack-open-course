@@ -24,7 +24,9 @@ Full Stack Open is a web development course covering:
 
 | Part | Topic | Status |
 |------|-------|--------|
-| 0 | Fundamentals of Web apps | [x] |
+| 0 | Fundamentals of Web apps | **DONE** |
+| 1 | Introduction to React | **DONE** |
+| 2 | Communicating with server | *TBD* |
 
 
 ## Repository structure
