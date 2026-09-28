@@ -1,5 +1,5 @@
 const PersonList = (props) => {
-    const {persons} = props;
+    const {persons, handleDeleteClick} = props;
 
     return (
         <ul>
@@ -7,6 +7,7 @@ const PersonList = (props) => {
           return (
             <li key={person.name}>
               {person.name} {person.number}
+              <button onClick={() => handleDeleteClick(person.id)}>Delete</button>
             </li>
           );
         })}
