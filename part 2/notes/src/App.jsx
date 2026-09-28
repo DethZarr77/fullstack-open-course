@@ -5,7 +5,7 @@ import noteService from "./services/notes";
 import Notification from "./components/Notification";
 
 const App = () => {
-  const [notes, setNotes] = useState([]);
+  const [notes, setNotes] = useState(null);
   const [newNote, setNewNote] = useState("a new note...");
   const [showAll, setShowAll] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
@@ -61,6 +61,10 @@ const App = () => {
         setNotes(notes.filter((note) => note.id !== id));
       });
   };
+
+  if(!notes){
+    return null;
+  }
 
   return (
     <div>
