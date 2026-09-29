@@ -1,20 +1,21 @@
 import axios from "axios";
 const baseUrl = "http://localhost:3001/persons";
 
-// const getAll = () => {
-//   const request = axios.get(baseUrl);
-//   return request.then((response) => response.data);
-// };
-
 const getAll = () => {
   const request = axios.get(baseUrl);
-  const nonExisting = {
-    name: "Wisemann",
-    number: "0986645322",
-    id: "999"
-  }
-  return request.then((response) => response.data.concat(nonExisting));
+  return request.then((response) => response.data);
 };
+
+// for the 'already deleted on server example
+// const getAll = () => {
+//   const request = axios.get(baseUrl);
+//   const nonExisting = {
+//     name: "Wisemann",
+//     number: "0986645322",
+//     id: "999"
+//   }
+//   return request.then((response) => response.data.concat(nonExisting));
+// };
 
 
 
