@@ -1,0 +1,35 @@
+{
+  "persons": [
+    {
+      "name": "Arto Hellas",
+      "number": "11111111111",
+      "id": "1"
+    },
+    {
+      "name": "Ada Lovelace",
+      "number": "39-44-5323523",
+      "id": "2"
+    },
+    {
+      "name": "Axelton Armory",
+      "number": "111123232",
+      "id": "bWV96xYwKwE"
+    },
+    {
+      "name": "Alex Kedian",
+      "number": "0823635262",
+      "id": "9-uJh-ey7LU"
+    },
+    {
+      "name": "Maverick Renegade",
+      "number": "11111122222",
+      "id": "XqCJ0TbDlO0"
+    },
+    {
+      "name": "Kitty Meow meow",
+      "number": "6574829",
+      "id": "a1oOsD8CKP0"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
