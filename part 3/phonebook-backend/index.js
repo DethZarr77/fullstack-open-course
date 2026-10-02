@@ -1,7 +1,20 @@
 const express = require("express");
 const app = express();
+var morgan = require("morgan");
 
-app.use(express.json());
+morgan.token("body", function getBody(req) {
+  const method = req.method;
+  if (method === "POST") {
+    const body = req.body;
+    if (!body) {
+      return;
+    } else {
+      return JSON.stringify(body);
+    }
+  } else {
+    return null;
+  }
+});
 
 let persons = [
   {
@@ -25,6 +38,12 @@ let persons = [
     number: "39-23-6423122",
   },
 ];
+
+app.use(express.json());
+app.use(
+  morgan(":method :url :status :res[content-length] - :response-time ms :body"),
+);
+// POST 'address'
 
 // Generate a random text id between 0 and 10,000
 const generateId = () => {
@@ -71,35 +90,46 @@ app.post("/api/persons", (request, response) => {
     });
   }
 
-  if(!body.name){
+  if (!body.name) {
     return response.status(400).json({
-        error: "Please provide a name"
-    })
+      error: "Please provide a name",
+    });
   }
 
-  if(!body.number){
+  if (!body.number) {
     return response.status(400).json({
-        error: "Please provide a number"
-    })
+      error: "Please provide a number",
+    });
   }
 
-  if(persons.find((person) => person.name.trim().toLowerCase() === body.name.trim().toLowerCase())){
+  if (
+    persons.find(
+      (person) =>
+        person.name.trim().toLowerCase() === body.name.trim().toLowerCase(),
+    )
+  ) {
     return response.status(409).json({
-        error: "Name already taken, please provide another"
-    })
+      error: "Name already taken, please provide another",
+    });
   }
 
   const person = {
-      id: generateId(),
-      name: body.name,
-      number: body.number,
-  }
+    id: generateId(),
+    name: body.name,
+    number: body.number,
+  };
 
   persons = persons.concat(person);
   response.json(person);
 });
 
-const PORT = 3002;
+const unknownEndpoint = (request, response) => {
+  response.status(404).send({ error: "unknown endpoint" });
+};
+
+app.use(unknownEndpoint);
+
+const PORT = 3001;
 app.listen(PORT);
 
 console.log(`Server running on port ${PORT}`);
