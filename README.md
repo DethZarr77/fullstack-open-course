@@ -34,6 +34,12 @@ Full Stack Open is a web development course covering:
 
 Each course part is contained in its own directory. When an exercise continues in a later part, that part gets its own copy and the earlier version is left unchanged. `courseinfo` from part 1 is copied into part 2 for that reason.
 
+### Part 3 deployment
+
+The notes app deployed for Part 3 lives in a separate repository (as recommended for Render), not in this monorepo:
+
+https://github.com/DethZarr77/render-test
+
 ## Course
 
 https://fullstackopen.com/
