@@ -43,7 +43,7 @@ Repo: https://github.com/DethZarr77/render-test
 Deployed App: https://render-test-6k1i.onrender.com/
 
 ## Phonebook Backend
-This backend has been deployed via render. It serves the static build files from this repo's `part 3/phonebook` frontend.
+This backend has been deployed via Render. The backend repository contains the production build of `part 3/phonebook` and serves it.
 
 Repo: https://github.com/DethZarr77/phonebook-backend
 Deployed App: https://phonebook-backend-vrj2.onrender.com/
